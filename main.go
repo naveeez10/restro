@@ -4,7 +4,7 @@ import(
 	"os"
 	"github.com/gin-gonic/gin"
 	"restro/database"
-	"restro/routes"
+	"golang-restro/routes"
 	"restro/middleware"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -20,7 +20,7 @@ func main(
 
 	router := gin.New()
 	router.Use(gin.Logger())
-	routes.UserRoutes(router)
+	routes.UserRoutes(router)	
 	router.Use(middleware.Authentication())
 
 	routes.FoodRoutes(router)
