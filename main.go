@@ -2,12 +2,17 @@ package main
 
 import(
 	"os"
+	"github.com/gin-gonic/gin"
 	"restro/database"
 	"restro/routes"
+	"restro/middleware"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
+var foodCollection *mongo.Collection = database.OpenCollection(database.client,"food")
+
 func main(
-	port := os.Getenv("PORT")
+	port := os.GetEnv("PORT")
 
 	if port == "" {
 		port = "8000"
@@ -15,4 +20,15 @@ func main(
 
 	router := gin.New()
 	router.Use(gin.Logger())
+	routes.UserRoutes(router)
+	router.Use(middleware.Authentication())
+
+	routes.FoodRoutes(router)
+	routes.MenuRoutes(router)
+	routes.TableRoutes(router)
+	routes.OrderRoutes(router)
+	routes.OrderItemRoutes(router)
+	routes.InvoiceRoutes(router)
+
+	router.Run(":" + port)
 )
