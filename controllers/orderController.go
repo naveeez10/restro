@@ -8,7 +8,7 @@ func GetOrders() gin.HandlerFunc(
 	}
 )
 
-func GetORder() gin.HandlerFunc(
+func GetOrder() gin.HandlerFunc(
 	return func(c *gin.Context) {
 
 	}
