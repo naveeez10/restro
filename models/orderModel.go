@@ -7,10 +7,10 @@ import (
 )
 
 type Order struct {
-	ID         primitive.ObjectID `bson: "_id"`
-	Order_date time.Time          `json: "order_date" validate:"required"`
-	Created_at time.Time          `json: "created_at"`
-	Updated_at time.Time          `json: "updated_at"`
-	Order_ID   string             `json: "order_id"`
-	Table_ID   *string            `json: "table_id" validate:"required"`
+	ID         primitive.ObjectID `bson:"_id"`
+	Order_date time.Time          `json:"order_date" validate:"required"`
+	Created_at time.Time          `json:"created_at"`
+	Updated_at time.Time          `json:"updated_at"`
+	Order_ID   string             `json:"order_id"`
+	Table_ID   *string            `json:"table_id" validate:"required"`
 }
