@@ -167,6 +167,7 @@ func CreateOrderItem() gin.HandlerFunc {
 		insertedOrderItems, err := orderItemCollection.InsertMany(
 			ctx,
 			orderItemstobeInserted)
+		defer cancel()
 
 		if err != nil {
 			log.Fatal(err)
