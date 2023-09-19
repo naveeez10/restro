@@ -11,7 +11,8 @@ import (
 )
 
 func DBInstance() *mongo.Client {
-	MongoDb := "mongodb://localhost:27017"
+	MongoDb := "mongodb+srv://20itnav068:insha%4020022020@cluster0.xhmxkp7." +
+		"mongodb.net/"
 	fmt.Print(MongoDb)
 
 	clientOptions := options.Client().ApplyURI(MongoDb)
